@@ -1,0 +1,59 @@
+name: flood-mapping
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Core
+  - python=3.11
+  - numpy=1.26.*
+
+  # Earth Engine / geospatial
+  - earthengine-api
+  - geemap
+  - gdal
+  - rasterio
+  - fiona
+  - pyproj
+  - shapely
+  - geopandas
+  - xarray
+  - rioxarray
+  - pyogrio
+
+  # Image processing 
+  - scikit-image
+  - opencv
+  - scipy
+
+  # Data / stats 
+  - pandas
+  - rasterstats
+  - exactextract
+  - openpyxl
+  - pyarrow
+
+  # Visualisation
+  - matplotlib
+  - seaborn
+  - folium
+  - ipyleaflet
+  - contextily
+
+  # Jupyter 
+  - jupyterlab
+  - notebook
+  - ipywidgets
+  - ipykernel
+
+  # Utilities 
+  - tqdm
+  - requests
+  - python-dotenv
+  - pyyaml
+
+  # pip: only packages unavailable on conda-forge 
+  - pip
+  - pip:
+    - geedim
