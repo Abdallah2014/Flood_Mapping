@@ -1,125 +1,55 @@
-# Flood Impact Assessment on Infrastructure – Lookoja 
+# Flood Impact Assessment on Infrastructure – Lokoja 
 
 This repository contains a complete **Google Earth Engine (GEE)** workflow to map flood extent and assess its impact on population, land cover, buildings, schools, and  health facilities. The analysis focuses on a flood event in **Lokoja** (2022).
 
 ##  Overview
 
 The project:
-- Defines an Area of Interest (AOI) around the flood‑affected area, the area within the confluence of the River Niger and the River Benue.
-- Downloads and processes **Sentinel‑1**, **Sentinel‑2**, and **Landsat‑8** imagery (pre‑ and post‑flood).
-- Extracts flood masks using **thresholding** and **Random Forest** classification.
-- Combines the three sensor‑based flood masks into a final high‑confidence flood extent.
-- Downloads **GRID3** infrastructure data (schools, health facilities), road, and **Google Open Buildings**.
-- Quantifies flood impact on:
-  - Land cover (ESA WorldCover 2021)
-  - Population (WorldPop 2020/2022)
-  - Buildings, schools, health facilities
-- Exports final rasters and vectors to Google Drive.
+- Defines an Area of Interest (AOI) at the Niger‑Benue confluence, download and pre-process Sentinel‑1, Sentinel‑2, and Landsat‑8 imagery.
+- Extracts flood masks via thresholding and Random Forest classification, then merge into a high‑confidence flood extent.
+- Quantifies impacts on land cover, population, buildings and infrastructure
 
-- ##  Area of Interest
+##  Requirements
 
-- The AOI is a rectangle covering part of Lokoja, Kogi State:
-[6.685181, 7.676968] to [6.853409, 7.890588]
+Create a (virtual) python environment using Anaconda prompt
 
-##  Required Libraries
+    conda create -n flood-mapping
 
-Install the dependencies (preferably in a fresh environment):
+flood-mapping is the name of the environment, then you have to activate your project with this command
 
-```bash
-pip install earthengine-api geemap geopandas pandas shapely requests
-Note: You also need a Google Earth Engine account (sign up at earthengine.google.com).
+    conda activate flood-mapping
 
-Workflow
+install the libraries/dependencies, preferably using conda:
 
-1. Initialisation
-Authenticate and initialise Earth Engine.
+  conda install --file environment.yaml -c conda-forge -y
 
-Set flood parameters (pre‑flood: 2022‑08‑01 to 2022‑09‑10; flood: 2022‑09‑14 to 2022‑11‑18).
 
-2. Satellite data download & preprocessing
-Sentinel‑2 (optical): cloud masking, resampling to 10 m, spectral indices (NDVI, NDWI, MNDWI, EVI).
+## Workflow
 
-Sentinel‑1 (SAR): speckle filtering (focal median), VV/VH polarisation.
+![Workflow Chart](images/Workflow_chart.png)
+![Satellite imagery](images/Satellite_imagery.png)
+![Flood Mask](images/ML_flood_mask.png)
 
-Landsat‑8 (optical): cloud masking, scaling, indices.
-
-3. Flood mapping
-Thresholding (weak labels):
-
-S2: NDWI > 0.1
-
-S1: VV < -15 (dB)
-
-L8: NDWI > 0.3
-
-Machine Learning (Random Forest):
-
-Stratified random sampling (250 points per class, 500 total).
-
-Train on threshold‑derived labels.
-
-Classify full images → flood masks for each sensor.
-
-Ensemble: Reproject all ML masks to 10 m and take the maximum (union) → final_flood_mask
-
-4. Thematic layers
-WorldPop (2020, 2022): population density.
-
-ESA WorldCover 2021: land cover classes.
-
-JRC Global Surface Water: permanent water (seasonality ≥ 10 months).
-
-SRTM and Copernicus DEM (GLO‑30).
-
-Google Open Buildings (v3).
-
-GRID3 infrastructure (public ArcGIS REST services):
-
-Schools
-
-Health facilities (v2.0)
-
-5. Impact assessment
-Land cover – flooded area per class (km²).
-
-Population – number of people in flooded pixels (WorldPop 2022).
-
-Buildings – count of intersecting building polygons.
-
-Schools / health facilities – count of points intersecting flood extent.
-
-Roads – total length (km) of flooded road segments.
-
-6. Export
-All composite images, flood masks, and vector layers (AOI, infrastructure) can be exported to Google Drive as GeoTIFF, Shapefile, or GeoJSON.
-
-Key Results (for this AOI)
-Metric	Value
+## Results
 Total flooded area	~140.9 km²
-Affected population	~34,551 people
+Affected population ~34,551 people
 Buildings affected	9,844 out of 85,253
 Schools affected	6 out of 94
 Health facilities affected	6 out of 84
 Roads flooded	324 km out of 1,343 km
-Land cover breakdown (flooded area per class):
 
-Permanent water bodies: 44.0 km²
+Land cover flooded (km²):
+Permanent water: 43.96
+Trees: 28.93
+Grassland: 22.06
+Cropland: 20.14
+Shrubland: 12.55
+Built‑up: 1.51
 
-Trees: 28.9 km²
+![Flood Map](images/Flood_map.png)
 
-Grassland: 22.1 km²
 
-Cropland: 20.1 km²
-
-Shrubland: 12.6 km²
-
-Built‑up: 1.5 km²
-
-wetland: 3.9 km²
-
-Bare/sparse: 1.0 km²
-
-How to Run the Notebook
+**How to Run the Notebook**
 
 Clone this repository.
 
@@ -133,15 +63,15 @@ The first run will ask you to authenticate Earth Engine (follow the link).
 
 All intermediate and final results are visualised inline.
 
-To export results to Google Drive, uncomment and run the export_* cells.
+To export results to Google Drive, run the export cells.
 
 Repository Structure
 
 Flood_Mapping/
+├── images                  # images
 ├── notebook/
 │   └── main.ipynb          # full analysis notebook
 ├── environment.yaml        # conda environment specification
-├── .gitignore              # excludes large/temporary files
 └── README.md
 
 License
@@ -167,6 +97,3 @@ WorldPop (worldpop.org)
 ESA (WorldCover)
 
 JRC (Global Surface Water)
-
-
-
