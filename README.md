@@ -150,7 +150,11 @@ This project is open‑source (MIT). Data sources retain their own licences:
 
 GRID3, WorldPop, ESA WorldCover, JRC GSW, USGS SRTM, Copernicus DEM, Google Open Buildings.
 
-Contributors
+Contributors:
+Racheal Onocheta
+Saheedat Ajike Akanbi
+Idris Ibrahim
+Ubong Usoro
 
 
 Acknowledgements
