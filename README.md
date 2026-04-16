@@ -154,7 +154,7 @@ Contributors:
 Racheal Onocheta
 Saheedat Ajike Akanbi
 Idris Ibrahim
-Ubong Usoro
+Surv-Lukmon Lukumon Lateef
 
 
 Acknowledgements
