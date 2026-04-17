@@ -76,11 +76,11 @@ Flood_Mapping/
 └── README.md
 
 
-**License**
+## License
 
 This project is open‑source (MIT). Data sources retain their own licences
 
-**Contributors:**
+## Contributors:
 
 [Racheal Onocheta](https://github.com/RachelJoy92)
 
@@ -91,7 +91,7 @@ This project is open‑source (MIT). Data sources retain their own licences
 [Lukumon Lateef (Mentor)](https://github.com/Surv-Lukmon)
 
 
-**Data Source**
+## Data Source
 
 Google Earth Engine team
 
