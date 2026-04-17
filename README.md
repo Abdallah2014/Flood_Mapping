@@ -82,13 +82,13 @@ This project is open‑source (MIT). Data sources retain their own licences
 
 **Contributors:**
 
-[Racheal Onocheta] (https://github.com/RachelJoy92)
+[Racheal Onocheta](https://github.com/RachelJoy92)
 
-[Saheedat Ajike Akanbi] (https://github.com/Holuwarkemmy)
+[Saheedat Ajike Akanbi](https://github.com/Holuwarkemmy)
 
-[Idris Ibrahim] (https://github.com/Abdallah2014)
+[Idris Ibrahim](https://github.com/Abdallah2014)
 
-[Lukumon Lateef (Mentor)] (https://github.com/Surv-Lukmon)
+[Lukumon Lateef (Mentor)](https://github.com/Surv-Lukmon)
 
 
 **Data Source**
