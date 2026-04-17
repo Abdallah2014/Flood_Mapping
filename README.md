@@ -1,4 +1,4 @@
-# Flood Impact Assessment on Infrastructure – Niger - Benue River Confluence in Kogi State, Nigeria
+# Flood Impact Assessment on Infrastructure Along Niger - Benue River Confluence in Kogi State, Nigeria
 
 This repository contains a complete **Google Earth Engine (GEE)** workflow to map flood extent and assess its impact on population, land cover, buildings, schools, and  health facilities. The analysis focuses on a flood event in Niger - Benue River Confluence in Kogi State, Nigeria (2022).
 
@@ -27,16 +27,18 @@ install the libraries/dependencies, preferably using conda:
 ## Workflow
 
 ![Workflow Chart](images/Workflow_chart.png)
+
 ![Satellite imagery](images/Satellite_imagery.png)
+
 ![Flood Mask](images/ML_flood_mask.png)
 
 ## Results
-- Total flooded area	~140.9 km²
-- Affected population ~34,551 people
-- Buildings affected	9,844 out of 85,253
-- Schools affected	6 out of 94
-- Health facilities affected	6 out of 84
-- Roads flooded	324 km out of 1,343 km
+- Total flooded area - 140.9 km²
+- Affected population - 34,551 people
+- Buildings affected	- 9,844 out of 85,253
+- Schools affected	- 6 out of 94
+- Health facilities affected - 6 out of 84
+- Roads flooded - 324 km out of 1,343 km
 
 Land cover flooded (km²):
 - Permanent water: 43.96
@@ -76,24 +78,31 @@ Flood_Mapping/
 
 **License**
 
-This project is open‑source (MIT). Data sources retain their own licences:
- GRID3, WorldPop, ESA WorldCover, JRC GSW, USGS SRTM, Copernicus DEM, Google Open Buildings.
+This project is open‑source (MIT). Data sources retain their own licences
 
 **Contributors:**
 
-Racheal Onocheta
+[Racheal Onocheta] (https://github.com/RachelJoy92)
 
-Saheedat Ajike Akanbi
+[Saheedat Ajike Akanbi] (https://github.com/Holuwarkemmy)
 
-Idris Ibrahim
+[Idris Ibrahim] (https://github.com/Abdallah2014)
 
-Surv-Lukmon Lukumon Lateef (Mentor)
+[Lukumon Lateef (Mentor)] (https://github.com/Surv-Lukmon)
 
 
-**Acknowledgements**
+**Data Source**
 
 Google Earth Engine team
-GRID3 (grid3.org) for infrastructure data
-WorldPop (worldpop.org)
-ESA (WorldCover)
-JRC (Global Surface Water)
+
+ESA Copernicus Open Data
+
+grid3
+
+WorldPop
+
+Google Open Building
+
+ESA WorldCover
+
+JRC Global Surface Water
